@@ -1,0 +1,729 @@
+
+============================== 处理指标: 发电量 ==============================
+1. 加载历史数据并进行预处理…
+2. 加载未来特征数据…
+3. 阶段A：省级/全国模型回填历史…
+4. 历史平滑（中心移动平均）…
+5. 阶段B：未来预测…
+6. 结果校准与非负保护…
+7. 绘图与导出各省结果…
+已保存上海市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/上海市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/上海市发电量完整数据.csv
+已保存云南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/云南省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/云南省发电量完整数据.csv
+已保存内蒙古自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/内蒙古自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/内蒙古自治区发电量完整数据.csv
+已保存北京市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/北京市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/北京市发电量完整数据.csv
+已保存吉林省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/吉林省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/吉林省发电量完整数据.csv
+已保存四川省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/四川省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/四川省发电量完整数据.csv
+已保存天津市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/天津市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/天津市发电量完整数据.csv
+已保存宁夏回族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/宁夏回族自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/宁夏回族自治区发电量完整数据.csv
+已保存安徽省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/安徽省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/安徽省发电量完整数据.csv
+已保存山东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/山东省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/山东省发电量完整数据.csv
+已保存山西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/山西省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/山西省发电量完整数据.csv
+已保存广东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/广东省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/广东省发电量完整数据.csv
+已保存广西壮族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/广西壮族自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/广西壮族自治区发电量完整数据.csv
+已保存新疆维吾尔自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/新疆维吾尔自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/新疆维吾尔自治区发电量完整数据.csv
+已保存江苏省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/江苏省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/江苏省发电量完整数据.csv
+已保存江西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/江西省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/江西省发电量完整数据.csv
+已保存河北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/河北省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/河北省发电量完整数据.csv
+已保存河南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/河南省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/河南省发电量完整数据.csv
+已保存浙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/浙江省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/浙江省发电量完整数据.csv
+已保存海南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/海南省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/海南省发电量完整数据.csv
+已保存湖北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/湖北省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/湖北省发电量完整数据.csv
+已保存湖南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/湖南省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/湖南省发电量完整数据.csv
+已保存甘肃省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/甘肃省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/甘肃省发电量完整数据.csv
+已保存福建省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/福建省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/福建省发电量完整数据.csv
+已保存西藏自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/西藏自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/西藏自治区发电量完整数据.csv
+已保存贵州省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/贵州省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/贵州省发电量完整数据.csv
+已保存辽宁省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/辽宁省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/辽宁省发电量完整数据.csv
+已保存重庆市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/重庆市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/重庆市发电量完整数据.csv
+已保存陕西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/陕西省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/陕西省发电量完整数据.csv
+已保存青海省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/青海省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/青海省发电量完整数据.csv
+已保存黑龙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/黑龙江省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/黑龙江省发电量完整数据.csv
+8. 汇总区域结果…
+----- 处理区域: 全国 -----
+生成全国历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存全国趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/区域指标趋势图/全国_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/区域完整数据/全国发电量完整数据.csv
+----- 处理区域: 京津冀及周边8省市 -----
+生成京津冀及周边8省市历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存京津冀及周边8省市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/区域指标趋势图/京津冀及周边8省市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/区域完整数据/京津冀及周边8省市发电量完整数据.csv
+
+============================== 处理指标: 火力发电量 ==============================
+1. 加载历史数据并进行预处理…
+2. 加载未来特征数据…
+3. 阶段A：省级/全国模型回填历史…
+4. 历史平滑（中心移动平均）…
+5. 阶段B：未来预测…
+>>> 检测到火力发电量，启动【比例外推】逻辑...
+6. 结果校准与非负保护…
+7. 绘图与导出各省结果…
+已保存上海市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/上海市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/上海市火力发电量完整数据.csv
+已保存云南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/云南省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/云南省火力发电量完整数据.csv
+已保存内蒙古自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/内蒙古自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/内蒙古自治区火力发电量完整数据.csv
+已保存北京市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/北京市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/北京市火力发电量完整数据.csv
+已保存吉林省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/吉林省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/吉林省火力发电量完整数据.csv
+已保存四川省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/四川省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/四川省火力发电量完整数据.csv
+已保存天津市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/天津市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/天津市火力发电量完整数据.csv
+已保存宁夏回族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/宁夏回族自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/宁夏回族自治区火力发电量完整数据.csv
+已保存安徽省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/安徽省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/安徽省火力发电量完整数据.csv
+已保存山东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/山东省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/山东省火力发电量完整数据.csv
+已保存山西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/山西省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/山西省火力发电量完整数据.csv
+已保存广东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/广东省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/广东省火力发电量完整数据.csv
+已保存广西壮族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/广西壮族自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/广西壮族自治区火力发电量完整数据.csv
+已保存新疆维吾尔自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/新疆维吾尔自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/新疆维吾尔自治区火力发电量完整数据.csv
+已保存江苏省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/江苏省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/江苏省火力发电量完整数据.csv
+已保存江西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/江西省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/江西省火力发电量完整数据.csv
+已保存河北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/河北省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/河北省火力发电量完整数据.csv
+已保存河南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/河南省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/河南省火力发电量完整数据.csv
+已保存浙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/浙江省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/浙江省火力发电量完整数据.csv
+已保存海南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/海南省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/海南省火力发电量完整数据.csv
+已保存湖北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/湖北省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/湖北省火力发电量完整数据.csv
+已保存湖南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/湖南省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/湖南省火力发电量完整数据.csv
+已保存甘肃省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/甘肃省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/甘肃省火力发电量完整数据.csv
+已保存福建省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/福建省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/福建省火力发电量完整数据.csv
+已保存西藏自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/西藏自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/西藏自治区火力发电量完整数据.csv
+已保存贵州省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/贵州省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/贵州省火力发电量完整数据.csv
+已保存辽宁省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/辽宁省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/辽宁省火力发电量完整数据.csv
+已保存重庆市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/重庆市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/重庆市火力发电量完整数据.csv
+已保存陕西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/陕西省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/陕西省火力发电量完整数据.csv
+已保存青海省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/青海省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/青海省火力发电量完整数据.csv
+已保存黑龙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/黑龙江省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/黑龙江省火力发电量完整数据.csv
+8. 汇总区域结果…
+----- 处理区域: 全国 -----
+生成全国历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存全国趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/区域指标趋势图/全国_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/区域完整数据/全国火力发电量完整数据.csv
+----- 处理区域: 京津冀及周边8省市 -----
+生成京津冀及周边8省市历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存京津冀及周边8省市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/区域指标趋势图/京津冀及周边8省市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/区域完整数据/京津冀及周边8省市火力发电量完整数据.csv
+
+============================== 处理指标: 电力消费量 ==============================
+1. 加载历史数据并进行预处理…
+2. 加载未来特征数据…
+3. 阶段A：省级/全国模型回填历史…
+4. 历史平滑（中心移动平均）…
+5. 阶段B：未来预测…
+6. 结果校准与非负保护…
+7. 绘图与导出各省结果…
+已保存上海市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/上海市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/上海市电力消费量完整数据.csv
+已保存云南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/云南省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/云南省电力消费量完整数据.csv
+已保存内蒙古自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/内蒙古自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/内蒙古自治区电力消费量完整数据.csv
+已保存北京市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/北京市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/北京市电力消费量完整数据.csv
+已保存吉林省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/吉林省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/吉林省电力消费量完整数据.csv
+已保存四川省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/四川省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/四川省电力消费量完整数据.csv
+已保存天津市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/天津市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/天津市电力消费量完整数据.csv
+已保存宁夏回族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/宁夏回族自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/宁夏回族自治区电力消费量完整数据.csv
+已保存安徽省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/安徽省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/安徽省电力消费量完整数据.csv
+已保存山东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/山东省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/山东省电力消费量完整数据.csv
+已保存山西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/山西省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/山西省电力消费量完整数据.csv
+已保存广东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/广东省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/广东省电力消费量完整数据.csv
+已保存广西壮族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/广西壮族自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/广西壮族自治区电力消费量完整数据.csv
+已保存新疆维吾尔自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/新疆维吾尔自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/新疆维吾尔自治区电力消费量完整数据.csv
+已保存江苏省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/江苏省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/江苏省电力消费量完整数据.csv
+已保存江西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/江西省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/江西省电力消费量完整数据.csv
+已保存河北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/河北省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/河北省电力消费量完整数据.csv
+已保存河南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/河南省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/河南省电力消费量完整数据.csv
+已保存浙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/浙江省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/浙江省电力消费量完整数据.csv
+已保存海南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/海南省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/海南省电力消费量完整数据.csv
+已保存湖北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/湖北省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/湖北省电力消费量完整数据.csv
+已保存湖南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/湖南省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/湖南省电力消费量完整数据.csv
+已保存甘肃省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/甘肃省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/甘肃省电力消费量完整数据.csv
+已保存福建省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/福建省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/福建省电力消费量完整数据.csv
+已保存西藏自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/西藏自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/西藏自治区电力消费量完整数据.csv
+已保存贵州省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/贵州省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/贵州省电力消费量完整数据.csv
+已保存辽宁省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/辽宁省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/辽宁省电力消费量完整数据.csv
+已保存重庆市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/重庆市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/重庆市电力消费量完整数据.csv
+已保存陕西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/陕西省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/陕西省电力消费量完整数据.csv
+已保存青海省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/青海省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/青海省电力消费量完整数据.csv
+已保存黑龙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份指标趋势图/黑龙江省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/省份完整数据/黑龙江省电力消费量完整数据.csv
+8. 汇总区域结果…
+----- 处理区域: 全国 -----
+生成全国历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存全国趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/区域指标趋势图/全国_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/区域完整数据/全国电力消费量完整数据.csv
+----- 处理区域: 京津冀及周边8省市 -----
+生成京津冀及周边8省市历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存京津冀及周边8省市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/区域指标趋势图/京津冀及周边8省市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_低增长/区域完整数据/京津冀及周边8省市电力消费量完整数据.csv
+
+所有指标（含火力发电量比例预测路径）处理完成！
+
+============================== 处理指标: 发电量 ==============================
+1. 加载历史数据并进行预处理…
+2. 加载未来特征数据…
+3. 阶段A：省级/全国模型回填历史…
+4. 历史平滑（中心移动平均）…
+5. 阶段B：未来预测…
+6. 结果校准与非负保护…
+7. 绘图与导出各省结果…
+已保存上海市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/上海市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/上海市发电量完整数据.csv
+已保存云南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/云南省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/云南省发电量完整数据.csv
+已保存内蒙古自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/内蒙古自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/内蒙古自治区发电量完整数据.csv
+已保存北京市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/北京市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/北京市发电量完整数据.csv
+已保存吉林省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/吉林省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/吉林省发电量完整数据.csv
+已保存四川省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/四川省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/四川省发电量完整数据.csv
+已保存天津市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/天津市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/天津市发电量完整数据.csv
+已保存宁夏回族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/宁夏回族自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/宁夏回族自治区发电量完整数据.csv
+已保存安徽省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/安徽省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/安徽省发电量完整数据.csv
+已保存山东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/山东省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/山东省发电量完整数据.csv
+已保存山西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/山西省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/山西省发电量完整数据.csv
+已保存广东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/广东省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/广东省发电量完整数据.csv
+已保存广西壮族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/广西壮族自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/广西壮族自治区发电量完整数据.csv
+已保存新疆维吾尔自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/新疆维吾尔自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/新疆维吾尔自治区发电量完整数据.csv
+已保存江苏省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/江苏省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/江苏省发电量完整数据.csv
+已保存江西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/江西省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/江西省发电量完整数据.csv
+已保存河北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/河北省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/河北省发电量完整数据.csv
+已保存河南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/河南省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/河南省发电量完整数据.csv
+已保存浙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/浙江省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/浙江省发电量完整数据.csv
+已保存海南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/海南省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/海南省发电量完整数据.csv
+已保存湖北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/湖北省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/湖北省发电量完整数据.csv
+已保存湖南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/湖南省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/湖南省发电量完整数据.csv
+已保存甘肃省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/甘肃省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/甘肃省发电量完整数据.csv
+已保存福建省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/福建省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/福建省发电量完整数据.csv
+已保存西藏自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/西藏自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/西藏自治区发电量完整数据.csv
+已保存贵州省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/贵州省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/贵州省发电量完整数据.csv
+已保存辽宁省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/辽宁省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/辽宁省发电量完整数据.csv
+已保存重庆市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/重庆市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/重庆市发电量完整数据.csv
+已保存陕西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/陕西省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/陕西省发电量完整数据.csv
+已保存青海省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/青海省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/青海省发电量完整数据.csv
+已保存黑龙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/黑龙江省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/黑龙江省发电量完整数据.csv
+8. 汇总区域结果…
+----- 处理区域: 全国 -----
+生成全国历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存全国趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/区域指标趋势图/全国_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/区域完整数据/全国发电量完整数据.csv
+----- 处理区域: 京津冀及周边8省市 -----
+生成京津冀及周边8省市历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存京津冀及周边8省市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/区域指标趋势图/京津冀及周边8省市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/区域完整数据/京津冀及周边8省市发电量完整数据.csv
+
+============================== 处理指标: 火力发电量 ==============================
+1. 加载历史数据并进行预处理…
+2. 加载未来特征数据…
+3. 阶段A：省级/全国模型回填历史…
+4. 历史平滑（中心移动平均）…
+5. 阶段B：未来预测…
+>>> 检测到火力发电量，启动【比例外推】逻辑...
+6. 结果校准与非负保护…
+7. 绘图与导出各省结果…
+已保存上海市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/上海市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/上海市火力发电量完整数据.csv
+已保存云南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/云南省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/云南省火力发电量完整数据.csv
+已保存内蒙古自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/内蒙古自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/内蒙古自治区火力发电量完整数据.csv
+已保存北京市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/北京市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/北京市火力发电量完整数据.csv
+已保存吉林省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/吉林省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/吉林省火力发电量完整数据.csv
+已保存四川省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/四川省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/四川省火力发电量完整数据.csv
+已保存天津市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/天津市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/天津市火力发电量完整数据.csv
+已保存宁夏回族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/宁夏回族自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/宁夏回族自治区火力发电量完整数据.csv
+已保存安徽省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/安徽省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/安徽省火力发电量完整数据.csv
+已保存山东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/山东省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/山东省火力发电量完整数据.csv
+已保存山西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/山西省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/山西省火力发电量完整数据.csv
+已保存广东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/广东省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/广东省火力发电量完整数据.csv
+已保存广西壮族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/广西壮族自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/广西壮族自治区火力发电量完整数据.csv
+已保存新疆维吾尔自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/新疆维吾尔自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/新疆维吾尔自治区火力发电量完整数据.csv
+已保存江苏省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/江苏省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/江苏省火力发电量完整数据.csv
+已保存江西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/江西省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/江西省火力发电量完整数据.csv
+已保存河北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/河北省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/河北省火力发电量完整数据.csv
+已保存河南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/河南省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/河南省火力发电量完整数据.csv
+已保存浙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/浙江省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/浙江省火力发电量完整数据.csv
+已保存海南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/海南省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/海南省火力发电量完整数据.csv
+已保存湖北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/湖北省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/湖北省火力发电量完整数据.csv
+已保存湖南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/湖南省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/湖南省火力发电量完整数据.csv
+已保存甘肃省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/甘肃省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/甘肃省火力发电量完整数据.csv
+已保存福建省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/福建省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/福建省火力发电量完整数据.csv
+已保存西藏自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/西藏自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/西藏自治区火力发电量完整数据.csv
+已保存贵州省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/贵州省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/贵州省火力发电量完整数据.csv
+已保存辽宁省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/辽宁省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/辽宁省火力发电量完整数据.csv
+已保存重庆市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/重庆市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/重庆市火力发电量完整数据.csv
+已保存陕西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/陕西省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/陕西省火力发电量完整数据.csv
+已保存青海省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/青海省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/青海省火力发电量完整数据.csv
+已保存黑龙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/黑龙江省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/黑龙江省火力发电量完整数据.csv
+8. 汇总区域结果…
+----- 处理区域: 全国 -----
+生成全国历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存全国趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/区域指标趋势图/全国_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/区域完整数据/全国火力发电量完整数据.csv
+----- 处理区域: 京津冀及周边8省市 -----
+生成京津冀及周边8省市历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存京津冀及周边8省市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/区域指标趋势图/京津冀及周边8省市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/区域完整数据/京津冀及周边8省市火力发电量完整数据.csv
+
+============================== 处理指标: 电力消费量 ==============================
+1. 加载历史数据并进行预处理…
+2. 加载未来特征数据…
+3. 阶段A：省级/全国模型回填历史…
+4. 历史平滑（中心移动平均）…
+5. 阶段B：未来预测…
+6. 结果校准与非负保护…
+7. 绘图与导出各省结果…
+已保存上海市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/上海市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/上海市电力消费量完整数据.csv
+已保存云南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/云南省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/云南省电力消费量完整数据.csv
+已保存内蒙古自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/内蒙古自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/内蒙古自治区电力消费量完整数据.csv
+已保存北京市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/北京市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/北京市电力消费量完整数据.csv
+已保存吉林省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/吉林省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/吉林省电力消费量完整数据.csv
+已保存四川省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/四川省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/四川省电力消费量完整数据.csv
+已保存天津市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/天津市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/天津市电力消费量完整数据.csv
+已保存宁夏回族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/宁夏回族自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/宁夏回族自治区电力消费量完整数据.csv
+已保存安徽省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/安徽省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/安徽省电力消费量完整数据.csv
+已保存山东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/山东省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/山东省电力消费量完整数据.csv
+已保存山西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/山西省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/山西省电力消费量完整数据.csv
+已保存广东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/广东省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/广东省电力消费量完整数据.csv
+已保存广西壮族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/广西壮族自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/广西壮族自治区电力消费量完整数据.csv
+已保存新疆维吾尔自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/新疆维吾尔自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/新疆维吾尔自治区电力消费量完整数据.csv
+已保存江苏省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/江苏省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/江苏省电力消费量完整数据.csv
+已保存江西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/江西省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/江西省电力消费量完整数据.csv
+已保存河北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/河北省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/河北省电力消费量完整数据.csv
+已保存河南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/河南省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/河南省电力消费量完整数据.csv
+已保存浙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/浙江省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/浙江省电力消费量完整数据.csv
+已保存海南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/海南省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/海南省电力消费量完整数据.csv
+已保存湖北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/湖北省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/湖北省电力消费量完整数据.csv
+已保存湖南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/湖南省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/湖南省电力消费量完整数据.csv
+已保存甘肃省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/甘肃省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/甘肃省电力消费量完整数据.csv
+已保存福建省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/福建省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/福建省电力消费量完整数据.csv
+已保存西藏自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/西藏自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/西藏自治区电力消费量完整数据.csv
+已保存贵州省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/贵州省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/贵州省电力消费量完整数据.csv
+已保存辽宁省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/辽宁省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/辽宁省电力消费量完整数据.csv
+已保存重庆市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/重庆市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/重庆市电力消费量完整数据.csv
+已保存陕西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/陕西省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/陕西省电力消费量完整数据.csv
+已保存青海省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/青海省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/青海省电力消费量完整数据.csv
+已保存黑龙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份指标趋势图/黑龙江省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/省份完整数据/黑龙江省电力消费量完整数据.csv
+8. 汇总区域结果…
+----- 处理区域: 全国 -----
+生成全国历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存全国趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/区域指标趋势图/全国_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/区域完整数据/全国电力消费量完整数据.csv
+----- 处理区域: 京津冀及周边8省市 -----
+生成京津冀及周边8省市历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存京津冀及周边8省市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/区域指标趋势图/京津冀及周边8省市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_中增长/区域完整数据/京津冀及周边8省市电力消费量完整数据.csv
+
+所有指标（含火力发电量比例预测路径）处理完成！
+
+============================== 处理指标: 发电量 ==============================
+1. 加载历史数据并进行预处理…
+2. 加载未来特征数据…
+3. 阶段A：省级/全国模型回填历史…
+4. 历史平滑（中心移动平均）…
+5. 阶段B：未来预测…
+6. 结果校准与非负保护…
+7. 绘图与导出各省结果…
+已保存上海市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/上海市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/上海市发电量完整数据.csv
+已保存云南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/云南省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/云南省发电量完整数据.csv
+已保存内蒙古自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/内蒙古自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/内蒙古自治区发电量完整数据.csv
+已保存北京市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/北京市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/北京市发电量完整数据.csv
+已保存吉林省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/吉林省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/吉林省发电量完整数据.csv
+已保存四川省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/四川省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/四川省发电量完整数据.csv
+已保存天津市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/天津市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/天津市发电量完整数据.csv
+已保存宁夏回族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/宁夏回族自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/宁夏回族自治区发电量完整数据.csv
+已保存安徽省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/安徽省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/安徽省发电量完整数据.csv
+已保存山东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/山东省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/山东省发电量完整数据.csv
+已保存山西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/山西省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/山西省发电量完整数据.csv
+已保存广东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/广东省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/广东省发电量完整数据.csv
+已保存广西壮族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/广西壮族自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/广西壮族自治区发电量完整数据.csv
+已保存新疆维吾尔自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/新疆维吾尔自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/新疆维吾尔自治区发电量完整数据.csv
+已保存江苏省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/江苏省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/江苏省发电量完整数据.csv
+已保存江西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/江西省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/江西省发电量完整数据.csv
+已保存河北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/河北省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/河北省发电量完整数据.csv
+已保存河南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/河南省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/河南省发电量完整数据.csv
+已保存浙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/浙江省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/浙江省发电量完整数据.csv
+已保存海南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/海南省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/海南省发电量完整数据.csv
+已保存湖北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/湖北省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/湖北省发电量完整数据.csv
+已保存湖南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/湖南省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/湖南省发电量完整数据.csv
+已保存甘肃省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/甘肃省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/甘肃省发电量完整数据.csv
+已保存福建省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/福建省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/福建省发电量完整数据.csv
+已保存西藏自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/西藏自治区_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/西藏自治区发电量完整数据.csv
+已保存贵州省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/贵州省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/贵州省发电量完整数据.csv
+已保存辽宁省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/辽宁省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/辽宁省发电量完整数据.csv
+已保存重庆市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/重庆市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/重庆市发电量完整数据.csv
+已保存陕西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/陕西省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/陕西省发电量完整数据.csv
+已保存青海省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/青海省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/青海省发电量完整数据.csv
+已保存黑龙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/黑龙江省_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/黑龙江省发电量完整数据.csv
+8. 汇总区域结果…
+----- 处理区域: 全国 -----
+生成全国历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存全国趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/区域指标趋势图/全国_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/区域完整数据/全国发电量完整数据.csv
+----- 处理区域: 京津冀及周边8省市 -----
+生成京津冀及周边8省市历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存京津冀及周边8省市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/区域指标趋势图/京津冀及周边8省市_发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/区域完整数据/京津冀及周边8省市发电量完整数据.csv
+
+============================== 处理指标: 火力发电量 ==============================
+1. 加载历史数据并进行预处理…
+2. 加载未来特征数据…
+3. 阶段A：省级/全国模型回填历史…
+4. 历史平滑（中心移动平均）…
+5. 阶段B：未来预测…
+>>> 检测到火力发电量，启动【比例外推】逻辑...
+6. 结果校准与非负保护…
+7. 绘图与导出各省结果…
+已保存上海市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/上海市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/上海市火力发电量完整数据.csv
+已保存云南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/云南省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/云南省火力发电量完整数据.csv
+已保存内蒙古自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/内蒙古自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/内蒙古自治区火力发电量完整数据.csv
+已保存北京市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/北京市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/北京市火力发电量完整数据.csv
+已保存吉林省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/吉林省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/吉林省火力发电量完整数据.csv
+已保存四川省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/四川省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/四川省火力发电量完整数据.csv
+已保存天津市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/天津市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/天津市火力发电量完整数据.csv
+已保存宁夏回族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/宁夏回族自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/宁夏回族自治区火力发电量完整数据.csv
+已保存安徽省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/安徽省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/安徽省火力发电量完整数据.csv
+已保存山东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/山东省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/山东省火力发电量完整数据.csv
+已保存山西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/山西省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/山西省火力发电量完整数据.csv
+已保存广东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/广东省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/广东省火力发电量完整数据.csv
+已保存广西壮族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/广西壮族自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/广西壮族自治区火力发电量完整数据.csv
+已保存新疆维吾尔自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/新疆维吾尔自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/新疆维吾尔自治区火力发电量完整数据.csv
+已保存江苏省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/江苏省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/江苏省火力发电量完整数据.csv
+已保存江西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/江西省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/江西省火力发电量完整数据.csv
+已保存河北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/河北省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/河北省火力发电量完整数据.csv
+已保存河南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/河南省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/河南省火力发电量完整数据.csv
+已保存浙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/浙江省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/浙江省火力发电量完整数据.csv
+已保存海南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/海南省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/海南省火力发电量完整数据.csv
+已保存湖北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/湖北省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/湖北省火力发电量完整数据.csv
+已保存湖南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/湖南省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/湖南省火力发电量完整数据.csv
+已保存甘肃省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/甘肃省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/甘肃省火力发电量完整数据.csv
+已保存福建省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/福建省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/福建省火力发电量完整数据.csv
+已保存西藏自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/西藏自治区_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/西藏自治区火力发电量完整数据.csv
+已保存贵州省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/贵州省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/贵州省火力发电量完整数据.csv
+已保存辽宁省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/辽宁省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/辽宁省火力发电量完整数据.csv
+已保存重庆市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/重庆市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/重庆市火力发电量完整数据.csv
+已保存陕西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/陕西省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/陕西省火力发电量完整数据.csv
+已保存青海省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/青海省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/青海省火力发电量完整数据.csv
+已保存黑龙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/黑龙江省_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/黑龙江省火力发电量完整数据.csv
+8. 汇总区域结果…
+----- 处理区域: 全国 -----
+生成全国历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存全国趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/区域指标趋势图/全国_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/区域完整数据/全国火力发电量完整数据.csv
+----- 处理区域: 京津冀及周边8省市 -----
+生成京津冀及周边8省市历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存京津冀及周边8省市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/区域指标趋势图/京津冀及周边8省市_火力发电量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/区域完整数据/京津冀及周边8省市火力发电量完整数据.csv
+
+============================== 处理指标: 电力消费量 ==============================
+1. 加载历史数据并进行预处理…
+2. 加载未来特征数据…
+3. 阶段A：省级/全国模型回填历史…
+4. 历史平滑（中心移动平均）…
+5. 阶段B：未来预测…
+6. 结果校准与非负保护…
+7. 绘图与导出各省结果…
+已保存上海市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/上海市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/上海市电力消费量完整数据.csv
+已保存云南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/云南省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/云南省电力消费量完整数据.csv
+已保存内蒙古自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/内蒙古自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/内蒙古自治区电力消费量完整数据.csv
+已保存北京市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/北京市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/北京市电力消费量完整数据.csv
+已保存吉林省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/吉林省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/吉林省电力消费量完整数据.csv
+已保存四川省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/四川省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/四川省电力消费量完整数据.csv
+已保存天津市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/天津市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/天津市电力消费量完整数据.csv
+已保存宁夏回族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/宁夏回族自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/宁夏回族自治区电力消费量完整数据.csv
+已保存安徽省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/安徽省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/安徽省电力消费量完整数据.csv
+已保存山东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/山东省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/山东省电力消费量完整数据.csv
+已保存山西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/山西省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/山西省电力消费量完整数据.csv
+已保存广东省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/广东省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/广东省电力消费量完整数据.csv
+已保存广西壮族自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/广西壮族自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/广西壮族自治区电力消费量完整数据.csv
+已保存新疆维吾尔自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/新疆维吾尔自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/新疆维吾尔自治区电力消费量完整数据.csv
+已保存江苏省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/江苏省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/江苏省电力消费量完整数据.csv
+已保存江西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/江西省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/江西省电力消费量完整数据.csv
+已保存河北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/河北省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/河北省电力消费量完整数据.csv
+已保存河南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/河南省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/河南省电力消费量完整数据.csv
+已保存浙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/浙江省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/浙江省电力消费量完整数据.csv
+已保存海南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/海南省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/海南省电力消费量完整数据.csv
+已保存湖北省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/湖北省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/湖北省电力消费量完整数据.csv
+已保存湖南省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/湖南省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/湖南省电力消费量完整数据.csv
+已保存甘肃省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/甘肃省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/甘肃省电力消费量完整数据.csv
+已保存福建省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/福建省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/福建省电力消费量完整数据.csv
+已保存西藏自治区趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/西藏自治区_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/西藏自治区电力消费量完整数据.csv
+已保存贵州省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/贵州省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/贵州省电力消费量完整数据.csv
+已保存辽宁省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/辽宁省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/辽宁省电力消费量完整数据.csv
+已保存重庆市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/重庆市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/重庆市电力消费量完整数据.csv
+已保存陕西省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/陕西省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/陕西省电力消费量完整数据.csv
+已保存青海省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/青海省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/青海省电力消费量完整数据.csv
+已保存黑龙江省趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份指标趋势图/黑龙江省_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/省份完整数据/黑龙江省电力消费量完整数据.csv
+8. 汇总区域结果…
+----- 处理区域: 全国 -----
+生成全国历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存全国趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/区域指标趋势图/全国_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/区域完整数据/全国电力消费量完整数据.csv
+----- 处理区域: 京津冀及周边8省市 -----
+生成京津冀及周边8省市历史数据: 共15条记录，其中2025年前15条，年份范围: 2010 - 2024
+已保存京津冀及周边8省市趋势图: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/区域指标趋势图/京津冀及周边8省市_电力消费量_趋势与预测.png
+已保存完整数据（含历史回填/平滑 + 未来预测）: /lustre/home/litong/intern/京津冀货运发展/output/2.消费需求预测/Sce_高增长/区域完整数据/京津冀及周边8省市电力消费量完整数据.csv
+
+所有指标（含火力发电量比例预测路径）处理完成！

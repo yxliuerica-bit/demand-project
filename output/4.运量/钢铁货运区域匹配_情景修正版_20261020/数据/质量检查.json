@@ -1,0 +1,10 @@
+{
+  "target_year": 2035,
+  "province_count": 31,
+  "od_nonnegative": true,
+  "mode_nonnegative": true,
+  "2035_od_total_ton": 296543076.7714028,
+  "2035_deficit_total_ton": 296543076.7714028,
+  "2035_mode_sum_error_ton": 5.960464477539063e-08,
+  "2035_max_destination_error_ton": 2.9802322387695312e-08
+}
